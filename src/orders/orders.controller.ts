@@ -1,8 +1,10 @@
 // src/orders/orders.controller.ts
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { OrdersService } from './orders.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('orders')
+@UseGuards(AuthGuard('jwt')) 
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
