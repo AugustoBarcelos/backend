@@ -1,0 +1,40 @@
+import { Document } from 'mongoose';
+
+export interface Order extends Document {
+  field1: string;
+  job_ref: string;
+  cus_code: string;
+  cus_ref: string;
+  date: string;
+  del_code: string;
+  del_name: string;
+  del_add1: string;
+  del_add2: string;
+  del_loc: string;
+  del_state: string;
+  del_post: string;
+  del_country: string;
+  depot: string;
+  diary_ref: string;
+  work_code: string;
+  instructions: string;
+  del_comment: string;
+  del_ref: string;
+  Ins_ref: string;
+  value: string;
+  drv_code: string;
+  srv_code: string;
+  cons_ref: string;
+  col_code: string;
+  lift: string;
+  weight: string;
+  cubic: string;
+  class: string;
+  phone: string;
+  email: string;
+  field2: string;
+  prod_code: string;
+  quantity: string;
+  stk_grp: string;
+  pallet_ref: string;
+}
