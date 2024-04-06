@@ -1,12 +1,16 @@
-// src/orders/orders.controller.ts
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { OrdersService } from './orders.service';
+//import { OrdersExportService } from './orders-export/orders-export.service'; // Ensure this path is correct
 import { AuthGuard } from '@nestjs/passport';
+//import {exportOrdersAndSendEmail} from './orders-export.service';
 
 @Controller('orders')
 @UseGuards(AuthGuard('jwt')) 
 export class OrdersController {
-  constructor(private readonly ordersService: OrdersService) {}
+  constructor(
+    private readonly ordersService: OrdersService,
+    //private readonly ordersExportService: OrdersExportService // Inject OrdersExportService
+  ) {}
 
   @Post()
   async create(@Body() createOrderDto: any) {
@@ -32,4 +36,6 @@ export class OrdersController {
   async delete(@Param('id') id: string) {
     return this.ordersService.delete(id);
   }
+
+
 }
